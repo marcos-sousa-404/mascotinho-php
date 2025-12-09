@@ -1,0 +1,80 @@
+
+.mobile-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70vw;
+    max-width: 280px;
+    background-color: #fff;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15), 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    z-index: 999;
+    transform: translateX(100%);
+    transition: transform 0.25s ease-out;
+}
+
+@media (min-width: 768px) {
+    .mobile-drawer,
+    .mobile-drawer-backdrop,
+    .mobile-menu-button {
+        display: none;
+    }
+}
+
+.mobile-drawer.open {
+    transform: translateX(0);
+}
+
+.mobile-drawer-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-out;
+}
+
+.mobile-drawer-backdrop.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.mobile-drawer-close {
+    background: none;
+    border: none;
+    padding: 0;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.mobile-drawer-close-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    color: #000;
+}
+
+.mobile-drawer-link {
+    text-decoration: none;
+    color: #4b4b4b;
+    font-weight: 600;
+    font-size: 1.6rem;
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #D5D5D5;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.mobile-drawer-link:hover {
+    color: #FF5A00;
+}
+
+.mobile-drawer-link.navbar-link-active {
+    color: #FF5A00;
+    font-weight: 700;
+}

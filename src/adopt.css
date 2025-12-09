@@ -45,6 +45,10 @@
 .navbar-link:hover {
     color: #FF5A00;
 }
+.navbar-link-active {
+    color: #FF5A00;
+    font-weight: 700;
+}
 .site-logo {
     width: 7rem;
 }
