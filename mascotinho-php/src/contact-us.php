@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fale Conosco - Abrigo Mascotinho</title>
+
+    <link rel="stylesheet" href="src/contact-us.css">
+    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="src/mobile-menu.css">
+</head>
+<body>
+<div class="header">
+    <div class="header-logo-group">
+        <a href="./">  <svg viewBox="0 0 640 640" width="24" height="24" fill="currentColor" class="go-back-icon">
+        <path fill="currentColor" d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352L544 352C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288L173.3 288L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/>
+    </svg>
+</a>
+<img src="src/assets/images/logo.png" class="site-logo"/></div>
+
+<nav class="navbar-links">
+    <a href="./" class="navbar-link">Início</a> <a href="adopt" class="navbar-link">Adote um amigo</a>
+    <a href="donate" class="navbar-link">Faça uma doação</a>
+    <a href="contact-us" class="navbar-link navbar-link-active">Nos siga</a>
+</nav>
+    <div class="header-actions"><a type="filled" data-href="https://wa.me/5585981727044?text=Oi"
+                                   href="https://wa.me/5585981727044?text=Oi" class="primary-button"
+    >
+        <svg viewBox="0 0 28 28" width="28" height="28" fill="currentColor">
+            <path d="M22.2251 5.72833C21.1553 4.64812 19.8813 3.79163 18.4772 3.20876C17.0731 2.62588 15.567 2.3283 14.0467 2.33333C7.67672 2.33333 2.48506 7.525 2.48506 13.895C2.48506 15.9367 3.02172 17.92 4.02506 19.67L2.39172 25.6667L8.51672 24.0567C10.2084 24.9783 12.1101 25.4683 14.0467 25.4683C20.4167 25.4683 25.6084 20.2767 25.6084 13.9067C25.6084 10.815 24.4067 7.91 22.2251 5.72833ZM14.0467 23.5083C12.3201 23.5083 10.6284 23.0417 9.14672 22.1667L8.79672 21.9567L5.15672 22.9133L6.12506 19.3667L5.89172 19.005C4.9322 17.4732 4.4228 15.7025 4.42172 13.895C4.42172 8.59833 8.73839 4.28167 14.0351 4.28167C16.6017 4.28167 19.0167 5.285 20.8251 7.105C21.7206 7.99617 22.4303 9.0563 22.913 10.2239C23.3956 11.3915 23.6416 12.6433 23.6367 13.9067C23.6601 19.2033 19.3434 23.5083 14.0467 23.5083ZM19.3201 16.3217C19.0284 16.1817 17.6051 15.4817 17.3484 15.3767C17.0801 15.2833 16.8934 15.2367 16.6951 15.5167C16.4967 15.8083 15.9484 16.4617 15.7851 16.6483C15.6217 16.8467 15.4467 16.87 15.1551 16.7183C14.8634 16.5783 13.9301 16.2633 12.8334 15.2833C11.9701 14.5133 11.3984 13.5683 11.2234 13.2767C11.0601 12.985 11.2001 12.8333 11.3517 12.6817C11.4801 12.5533 11.6434 12.3433 11.7834 12.18C11.9234 12.0167 11.9817 11.8883 12.0751 11.7017C12.1684 11.5033 12.1217 11.34 12.0517 11.2C11.9817 11.06 11.3984 9.63667 11.1651 9.05333C10.9317 8.49333 10.6867 8.56333 10.5117 8.55167H9.95172C9.75339 8.55167 9.45006 8.62167 9.18172 8.91333C8.92506 9.205 8.17839 9.905 8.17839 11.3283C8.17839 12.7517 9.21672 14.1283 9.35672 14.315C9.49672 14.5133 11.3984 17.43 14.2917 18.6783C14.9801 18.9817 15.5167 19.1567 15.9367 19.285C16.6251 19.5067 17.2551 19.4717 17.7567 19.4017C18.3167 19.32 19.4717 18.7017 19.7051 18.025C19.9501 17.3483 19.9501 16.7767 19.8684 16.6483C19.7867 16.52 19.6117 16.4617 19.3201 16.3217Z"
+                  fill="currentColor"/>
+        </svg>
+        Fale conosco</a></div>
+    <button class="mobile-menu-button" id="mobileMenuButton">
+        <svg viewBox="0 0 640 640" width="24" height="24" fill="currentColor" class="hamburger-menu-icon">
+            <path fill="currentColor"
+                  d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/>
+        </svg>
+    </button>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Fechar menu">
+            <svg viewBox="0 0 24 24" class="mobile-drawer-close-icon">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m5 5 14 14M5 19 19 5"></path>
+            </svg>
+        </button>
+
+        <a href="./" class="mobile-drawer-link">Início</a>
+        <a href="adopt" class="mobile-drawer-link">Adote um amigo</a>
+        <a href="donate" class="mobile-drawer-link">Faça uma doação</a>
+        <a href="contact-us" class="mobile-drawer-link navbar-link-active">Nos siga</a>
+    </div>
+
+    <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+</div>
+<section class="hero-banner-contact">
+    <div class="hero-content-area-left"><h1 class="hero-title">Entre em Contato</h1>
+        <p class="hero-description">Os animais precisam da nossa voz! Ajude a transformar a vida de muitos bichinhos que
+            hoje esperam por cuidado, carinho e um lar. Cada gesto de apoio faz a diferença — seja compartilhando,
+            doando ou adotando. Juntos podemos dar a eles o amor que merecem!</p></div>
+</section>
+<section class="main-content-padding">
+    <div class="cards-grid">
+        <div class="standard-card icon-card contact-card-max-width">
+            <svg viewBox="0 0 24 24" width="800px" height="800px" fill="currentColor" class="card-icon">
+                <path d="m16 12v-.001c0-2.209-1.791-4-4-4s-4 1.791-4 4 1.791 4 4 4c1.104 0 2.104-.448 2.828-1.171.723-.701 1.172-1.682 1.172-2.768 0-.021 0-.042-.001-.063v.003zm2.16 0c-.012 3.379-2.754 6.114-6.135 6.114-3.388 0-6.135-2.747-6.135-6.135s2.747-6.135 6.135-6.135c1.694 0 3.228.687 4.338 1.797 1.109 1.08 1.798 2.587 1.798 4.256 0 .036 0 .073-.001.109v-.005zm1.687-6.406v.002c0 .795-.645 1.44-1.44 1.44s-1.44-.645-1.44-1.44.645-1.44 1.44-1.44c.398 0 .758.161 1.018.422.256.251.415.601.415.988v.029-.001zm-7.84-3.44-1.195-.008q-1.086-.008-1.649 0t-1.508.047c-.585.02-1.14.078-1.683.17l.073-.01c-.425.07-.802.17-1.163.303l.043-.014c-1.044.425-1.857 1.237-2.272 2.254l-.01.027c-.119.318-.219.695-.284 1.083l-.005.037c-.082.469-.14 1.024-.159 1.589l-.001.021q-.039.946-.047 1.508t0 1.649.008 1.195-.008 1.195 0 1.649.047 1.508c.02.585.078 1.14.17 1.683l-.01-.073c.07.425.17.802.303 1.163l-.014-.043c.425 1.044 1.237 1.857 2.254 2.272l.027.01c.318.119.695.219 1.083.284l.037.005c.469.082 1.024.14 1.588.159l.021.001q.946.039 1.508.047t1.649 0l1.188-.024 1.195.008q1.086.008 1.649 0t1.508-.047c.585-.02 1.14-.078 1.683-.17l-.073.01c.425-.07.802-.17 1.163-.303l-.043.014c1.044-.425 1.857-1.237 2.272-2.254l.01-.027c.119-.318.219-.695.284-1.083l.005-.037c.082-.469.14-1.024.159-1.588l.001-.021q.039-.946.047-1.508t0-1.649-.008-1.195.008-1.195 0-1.649-.047-1.508c-.02-.585-.078-1.14-.17-1.683l.01.073c-.07-.425-.17-.802-.303-1.163l.014.043c-.425-1.044-1.237-1.857-2.254-2.272l-.027-.01c-.318-.119-.695-.219-1.083-.284l-.037-.005c-.469-.082-1.024-.14-1.588-.159l-.021-.001q-.946-.039-1.508-.047t-1.649 0zm11.993 9.846q0 3.578-.08 4.953c.005.101.009.219.009.337 0 3.667-2.973 6.64-6.64 6.64-.119 0-.237-.003-.354-.009l.016.001q-1.375.08-4.953.08t-4.953-.08c-.101.005-.219.009-.337.009-3.667 0-6.64-2.973-6.64-6.64 0-.119.003-.237.009-.354l-.001.016q-.08-1.375-.08-4.953t.08-4.953c-.005-.101-.009-.219-.009-.337 0-3.667 2.973-6.64 6.64-6.64.119 0 .237.003.354.009l-.016-.001q1.375-.08 4.953-.08t4.953.08c.101-.005.219-.009.337-.009 3.667 0 6.64 2.973 6.64 6.64 0 .119-.003.237-.009.354l.001-.016q.08 1.374.08 4.953z"/>
+            </svg>
+            <h3 class="card-title">Adote um amigo</h3>
+            <p class="card-description">Acompanhe nosso dia a dia e nossos resgates. Siga no Instagram e ajude a
+                divulgar nossos peludos e o trabalho do abrigo para mais pessoas.</p><a
+                class="primary-button card-button" data-href="https://www.instagram.com/abrigo_mascotinho"
+                href="https://www.instagram.com/abrigo_mascotinho">Seguir</a></div>
+        <div class="standard-card icon-card contact-card-max-width">
+            <svg viewBox="-1.66 0 740.824 740.824" width="800px" height="800px" fill="currentColor" class="card-icon">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                      d="M630.056 107.658C560.727 38.271 468.525.039 370.294 0 167.891 0 3.16 164.668 3.079 367.072c-.027 64.699 16.883 127.855 49.016 183.523L0 740.824l194.666-51.047c53.634 29.244 114.022 44.656 175.481 44.682h.151c202.382 0 367.128-164.689 367.21-367.094.039-98.088-38.121-190.32-107.452-259.707m-259.758 564.8h-.125c-54.766-.021-108.483-14.729-155.343-42.529l-11.146-6.613-115.516 30.293 30.834-112.592-7.258-11.543c-30.552-48.58-46.689-104.729-46.665-162.379C65.146 198.865 202.065 62 370.419 62c81.521.031 158.154 31.81 215.779 89.482s89.342 134.332 89.311 215.859c-.07 168.242-136.987 305.117-305.211 305.117m167.415-228.514c-9.176-4.591-54.286-26.782-62.697-29.843-8.41-3.061-14.526-4.591-20.644 4.592-6.116 9.182-23.7 29.843-29.054 35.964-5.351 6.122-10.703 6.888-19.879 2.296-9.175-4.591-38.739-14.276-73.786-45.526-27.275-24.32-45.691-54.36-51.043-63.542-5.352-9.183-.569-14.148 4.024-18.72 4.127-4.11 9.175-10.713 13.763-16.07 4.587-5.356 6.116-9.182 9.174-15.303 3.059-6.122 1.53-11.479-.764-16.07-2.294-4.591-20.643-49.739-28.29-68.104-7.447-17.886-15.012-15.466-20.644-15.746-5.346-.266-11.469-.323-17.585-.323-6.117 0-16.057 2.296-24.468 11.478-8.41 9.183-32.112 31.374-32.112 76.521s32.877 88.763 37.465 94.885c4.587 6.122 64.699 98.771 156.741 138.502 21.891 9.45 38.982 15.093 52.307 19.323 21.981 6.979 41.983 5.994 57.793 3.633 17.628-2.633 54.285-22.19 61.932-43.616 7.646-21.426 7.646-39.791 5.352-43.617-2.293-3.826-8.41-6.122-17.585-10.714"/>
+            </svg>
+            <h3 class="card-title">Faça uma doação</h3>
+            <p class="card-description">Fale com a gente pelo WhatsApp! Tire dúvidas sobre doações ou adoções e receba
+                um atendimento acolhedor, direto com nosso time do abrigo.</p><a class="primary-button card-button"
+                                                                                 data-href="https://wa.me/5585981727044?text=Oi"
+                                                                                 href="https://wa.me/5585981727044?text=Oi"
+        >Conversar</a>
+        </div>
+        <div class="standard-card icon-card contact-card-max-width">
+            <svg viewBox="0 0 32 32" width="800px" height="800px" fill="currentColor" class="card-icon">
+                <title>facebook</title>
+                <path d="M30.996 16.091c-0.001-8.281-6.714-14.994-14.996-14.994s-14.996 6.714-14.996 14.996c0 7.455 5.44 13.639 12.566 14.8l0.086 0.012v-10.478h-3.808v-4.336h3.808v-3.302c-0.019-0.167-0.029-0.361-0.029-0.557 0-2.923 2.37-5.293 5.293-5.293 0.141 0 0.281 0.006 0.42 0.016l-0.018-0.001c1.199 0.017 2.359 0.123 3.491 0.312l-0.134-0.019v3.69h-1.892c-0.086-0.012-0.185-0.019-0.285-0.019-1.197 0-2.168 0.97-2.168 2.168 0 0.068 0.003 0.135 0.009 0.202l-0.001-0.009v2.812h4.159l-0.665 4.336h-3.494v10.478c7.213-1.174 12.653-7.359 12.654-14.814v-0z"></path>
+            </svg>
+            <h3 class="card-title">Nos siga</h3>
+            <p class="card-description">Veja notícias, campanhas de arrecadação e acompanhe todas as conquistas do
+                abrigo! Curta e compartilhe nossa página no Facebook para fazer parte dessa rede do bem.</p><a
+                class="primary-button card-button"
+                data-href="https://www.facebook.com/abrigomascotinhocascavel?locale=pt_BR"
+                href="https://www.facebook.com/abrigomascotinhocascavel?locale=pt_BR">Seguir</a>
+        </div>
+    </div>
+</section>
+<div class="footer"><h5 class="footer-text-small">© Abrigo Mascotinho 2025. Todos os direitos reservados</h5>
+    <p class="footer-description">Projeto de extensão elaborado por alunos da Universidade 7 de Setembro.</p></div>
+<script src="src/mobile-menu.js"></script>
+</body>
+</html>

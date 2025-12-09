@@ -1,0 +1,26 @@
+{
+    "1": {
+        "nome": "Thor",
+        "tipo": "dog",
+        "sexo": "male",
+        "idade": "2 anos",
+        "descricao": "Muito brincalh\u00e3o e adora correr.",
+        "img": "src\/assets\/images\/animals\/thor.jpg"
+    },
+    "2": {
+        "nome": "Luna",
+        "tipo": "cat",
+        "sexo": "female",
+        "idade": "1 ano",
+        "descricao": "Calma, carinhosa e adora dormir.",
+        "img": "src\/assets\/images\/animals\/luna.jpg"
+    },
+    "3": {
+        "nome": "Bob",
+        "tipo": "dog",
+        "sexo": "male",
+        "idade": "10 meses",
+        "descricao": "Filhote cheio de energia.",
+        "img": "src\/assets\/images\/animals\/bob.webp"
+    }
+}
