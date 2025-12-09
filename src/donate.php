@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça uma Doação - Abrigo Mascotinho</title>
+
+    <link rel="stylesheet" href="src/donate.css">
+    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="src/mobile-menu.css">
+</head>
+<body>
+<div class="header">
+    <div class="header-logo-group">
+        <a href="<?php echo $baseUrl; ?>/">  <svg viewBox="0 0 640 640" width="24" height="24" fill="currentColor" class="go-back-icon">
+        <path fill="currentColor" d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352L544 352C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288L173.3 288L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/>
+    </svg>
+</a>
+<img src="src/assets/images/logo.png" class="site-logo"/></div>
+
+<nav class="navbar-links">
+    <a href="<?php echo $baseUrl; ?>/" class="navbar-link">Início</a> <a href="adopt" class="navbar-link">Adote um amigo</a>
+    <a href="donate" class="navbar-link">Faça uma doação</a>
+    <a href="contact-us" class="navbar-link">Nos siga</a>
+</nav>
+    <div class="header-actions"><a type="filled" data-href="https://wa.me/5585981727044?text=Oi"
+                                   href="https://wa.me/5585981727044?text=Oi" class="primary-button"
+    >
+        <svg viewBox="0 0 28 28" width="28" height="28" fill="currentColor">
+            <path d="M22.2251 5.72833C21.1553 4.64812 19.8813 3.79163 18.4772 3.20876C17.0731 2.62588 15.567 2.3283 14.0467 2.33333C7.67672 2.33333 2.48506 7.525 2.48506 13.895C2.48506 15.9367 3.02172 17.92 4.02506 19.67L2.39172 25.6667L8.51672 24.0567C10.2084 24.9783 12.1101 25.4683 14.0467 25.4683C20.4167 25.4683 25.6084 20.2767 25.6084 13.9067C25.6084 10.815 24.4067 7.91 22.2251 5.72833ZM14.0467 23.5083C12.3201 23.5083 10.6284 23.0417 9.14672 22.1667L8.79672 21.9567L5.15672 22.9133L6.12506 19.3667L5.89172 19.005C4.9322 17.4732 4.4228 15.7025 4.42172 13.895C4.42172 8.59833 8.73839 4.28167 14.0351 4.28167C16.6017 4.28167 19.0167 5.285 20.8251 7.105C21.7206 7.99617 22.4303 9.0563 22.913 10.2239C23.3956 11.3915 23.6416 12.6433 23.6367 13.9067C23.6601 19.2033 19.3434 23.5083 14.0467 23.5083ZM19.3201 16.3217C19.0284 16.1817 17.6051 15.4817 17.3484 15.3767C17.0801 15.2833 16.8934 15.2367 16.6951 15.5167C16.4967 15.8083 15.9484 16.4617 15.7851 16.6483C15.6217 16.8467 15.4467 16.87 15.1551 16.7183C14.8634 16.5783 13.9301 16.2633 12.8334 15.2833C11.9701 14.5133 11.3984 13.5683 11.2234 13.2767C11.0601 12.985 11.2001 12.8333 11.3517 12.6817C11.4801 12.5533 11.6434 12.3433 11.7834 12.18C11.9234 12.0167 11.9817 11.8883 12.0751 11.7017C12.1684 11.5033 12.1217 11.34 12.0517 11.2C11.9817 11.06 11.3984 9.63667 11.1651 9.05333C10.9317 8.49333 10.6867 8.56333 10.5117 8.55167H9.95172C9.75339 8.55167 9.45006 8.62167 9.18172 8.91333C8.92506 9.205 8.17839 9.905 8.17839 11.3283C8.17839 12.7517 9.21672 14.1283 9.35672 14.315C9.49672 14.5133 11.3984 17.43 14.2917 18.6783C14.9801 18.9817 15.5167 19.1567 15.9367 19.285C16.6251 19.5067 17.2551 19.4717 17.7567 19.4017C18.3167 19.32 19.4717 18.7017 19.7051 18.025C19.9501 17.3483 19.9501 16.7767 19.8684 16.6483C19.7867 16.52 19.6117 16.4617 19.3201 16.3217Z"
+                  fill="currentColor"/>
+        </svg>
+        Fale conosco</a></div>
+    <button class="mobile-menu-button" id="mobileMenuButton">
+        <svg viewBox="0 0 640 640" width="24" height="24" fill="currentColor" class="hamburger-menu-icon">
+            <path fill="currentColor"
+                  d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/>
+        </svg>
+    </button>
+    <div class="mobile-drawer" id="mobileDrawer">
+        <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Fechar menu">
+            <svg viewBox="0 0 24 24" class="mobile-drawer-close-icon">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="m5 5 14 14M5 19 19 5"></path>
+            </svg>
+        </button>
+
+        <a href="/" class="mobile-drawer-link">Início</a>
+        <a href="adopt" class="mobile-drawer-link">Adote um amigo</a>
+        <a href="donate" class="mobile-drawer-link navbar-link-active">Faça uma doação</a>
+        <a href="contact-us" class="mobile-drawer-link">Nos siga</a>
+    </div>
+
+    <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
+</div>
+<main class="main-content-padding">
+    <div class="banner-wrapper-padding">
+        <section class="hero-banner full-width-section">
+            <div class="hero-content-area"><h2 align="left" class="section-title-underlined page-title">Seja um
+                doador</h2>
+                <p class="hero-description">Ajude nossos cães a terem uma vida melhor. Sua doação oferece comida,
+                    cuidados e abrigo para animais que precisam de um lar seguro. Contribua e faça parte deste gesto de
+                    amor.</p></div>
+        </section>
+    </div>
+    <section class="content-centered"><h2 align="left" class="section-title-underlined">Nossas chaves PIX</h2><h6
+            class="section-subtitle">Use uma das chaves abaixo para fazer sua doação pelo app do seu banco.</h6>
+        <div class="pix-cards-container">
+            <div class="standard-card pix-key-card"><h6 class="pix-card-header">Chave telefone:</h6><span
+                    class="pix-key-value">(85) 98887-8546</span><span class="pix-key-holder-name">FILIPE ANDERSON</span>
+            </div>
+            <div class="standard-card pix-key-card"><h6 class="pix-card-header">Chave email:</h6><span
+                    class="pix-key-value">abrigomascotinho@gmail.com</span><span class="pix-key-holder-name">FILIPE ANDERSON</span>
+            </div>
+        </div>
+    </section>
+</main>
+<section class="footer-call-to-action">
+    <div class="cta-card-glass"><h6 class="cta-title-white">Obrigado por ajudar!</h6><h6
+            class="section-subtitle cta-subtitle-white">Sua contribuição faz a diferença na vida dos nossos animais.
+        Quer apoiar de outra forma? Veja abaixo:</h6>
+        <p class="cta-secondary-title">Outras formas de doar</p>
+        <div class="donation-options-buttons"><a
+                data-href="https://www.vakinha.com.br/vaquinha/vamos-construir-a-sede-propria-do-abrigo-mascotinho"
+                href="https://www.vakinha.com.br/vaquinha/vamos-construir-a-sede-propria-do-abrigo-mascotinho"
+                class="primary-button">
+            <svg viewBox="279 33 29 28" width="24" height="24" fill="currentColor">
+                <path
+                        d="M 293.443 50.446 C 293.211 50.446 292.981 50.461 292.751 50.492 L 287.006 40.515 C 288.473 38.115 287.048 34.993 284.274 34.529 C 282.51 34.237 280.77 35.164 280.028 36.791 C 279.285 38.418 279.721 40.341 281.093 41.488 C 281.761 42.045 282.593 42.367 283.461 42.404 L 289.311 52.55 C 287.006 55.743 289.021 60.234 292.939 60.634 C 293.1 60.651 293.262 60.66 293.424 60.661 C 295.34 60.67 297.099 59.606 297.979 57.905 C 298.861 56.203 298.719 54.152 297.611 52.588 L 303.481 42.41 C 305.267 42.333 306.78 41.069 307.173 39.325 C 307.567 37.582 306.747 35.79 305.17 34.949 C 303.593 34.109 301.649 34.43 300.426 35.733 C 299.203 37.037 299.002 38.998 299.936 40.523 L 294.182 50.499 C 293.939 50.461 293.693 50.442 293.446 50.441 L 293.443 50.446 Z"
+                        fill="currentColor"
+                />
+            </svg>
+            Doar na vakinha</a><a type="white" data-href="https://wa.me/5585981727044?text=Oi,%20quero%20doar%20ração"
+                                  href="https://wa.me/5585981727044?text=Oi,%20quero%20doar%20ração"
+                                  class="secondary-button-white">
+            <svg viewBox="0 0 28 28" width="28" height="28" fill="currentColor">
+                <path d="M22.2251 5.72833C21.1553 4.64812 19.8813 3.79163 18.4772 3.20876C17.0731 2.62588 15.567 2.3283 14.0467 2.33333C7.67672 2.33333 2.48506 7.525 2.48506 13.895C2.48506 15.9367 3.02172 17.92 4.02506 19.67L2.39172 25.6667L8.51672 24.0567C10.2084 24.9783 12.1101 25.4683 14.0467 25.4683C20.4167 25.4683 25.6084 20.2767 25.6084 13.9067C25.6084 10.815 24.4067 7.91 22.2251 5.72833ZM14.0467 23.5083C12.3201 23.5083 10.6284 23.0417 9.14672 22.1667L8.79672 21.9567L5.15672 22.9133L6.12506 19.3667L5.89172 19.005C4.9322 17.4732 4.4228 15.7025 4.42172 13.895C4.42172 8.59833 8.73839 4.28167 14.0351 4.28167C16.6017 4.28167 19.0167 5.285 20.8251 7.105C21.7206 7.99617 22.4303 9.0563 22.913 10.2239C23.3956 11.3915 23.6416 12.6433 23.6367 13.9067C23.6601 19.2033 19.3434 23.5083 14.0467 23.5083ZM19.3201 16.3217C19.0284 16.1817 17.6051 15.4817 17.3484 15.3767C17.0801 15.2833 16.8934 15.2367 16.6951 15.5167C16.4967 15.8083 15.9484 16.4617 15.7851 16.6483C15.6217 16.8467 15.4467 16.87 15.1551 16.7183C14.8634 16.5783 13.9301 16.2633 12.8334 15.2833C11.9701 14.5133 11.3984 13.5683 11.2234 13.2767C11.0601 12.985 11.2001 12.8333 11.3517 12.6817C11.4801 12.5533 11.6434 12.3433 11.7834 12.18C11.9234 12.0167 11.9817 11.8883 12.0751 11.7017C12.1684 11.5033 12.1217 11.34 12.0517 11.2C11.9817 11.06 11.3984 9.63667 11.1651 9.05333C10.9317 8.49333 10.6867 8.56333 10.5117 8.55167H9.95172C9.75339 8.55167 9.45006 8.62167 9.18172 8.91333C8.92506 9.205 8.17839 9.905 8.17839 11.3283C8.17839 12.7517 9.21672 14.1283 9.35672 14.315C9.49672 14.5133 11.3984 17.43 14.2917 18.6783C14.9801 18.9817 15.5167 19.1567 15.9367 19.285C16.6251 19.5067 17.2551 19.4717 17.7567 19.4017C18.3167 19.32 19.4717 18.7017 19.7051 18.025C19.9501 17.3483 19.9501 16.7767 19.8684 16.6483C19.7867 16.52 19.6117 16.4617 19.3201 16.3217Z"
+                      fill="currentColor"/>
+            </svg>
+            Doar ração</a></div>
+    </div>
+</section>
+<div class="footer"><h5 class="footer-text-small">© Abrigo Mascotinho 2025. Todos os direitos reservados</h5>
+    <p class="footer-description">Projeto de extensão elaborado por alunos da Universidade 7 de Setembro.</p></div>
+<script src="src/mobile-menu.js"></script>
+</body>
+</html>
