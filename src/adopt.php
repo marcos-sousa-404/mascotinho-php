@@ -1,40 +1,26 @@
 <?php
-// 1. Simulação de Banco de Dados de Animais
-$animais = [
-    1 => [
-        'nome' => 'Thor',
-        'tipo' => 'dog', // dog ou cat
-        'sexo' => 'male',
-        'idade' => '2 anos',
-        'descricao' => 'Muito brincalhão e adora correr.',
-        'img' => 'src/assets/images/landing-hero/landing-hero-sm.png'
-    ],
-    2 => [
-        'nome' => 'Luna',
-        'tipo' => 'cat',
-        'sexo' => 'female',
-        'idade' => '1 ano',
-        'descricao' => 'Calma, carinhosa e adora dormir.',
-        'img' => 'src/assets/images/contact-us-hero/contact-us-hero-sm.png'
-    ],
-    3 => [
-        'nome' => 'Bob',
-        'tipo' => 'dog',
-        'sexo' => 'male',
-        'idade' => '5 meses',
-        'descricao' => 'Filhote cheio de energia.',
-        'img' => 'src/assets/images/adopt-hero/adopt-hero-sm.jpg'
-    ],
-    // Adicione mais animais aqui se quiser
-];
+$caminho_json = 'src/animals.json';
 
-// 2. Verifica se algum animal foi selecionado pelo ID na URL (ex: /adopt?id=1)
+$json_data = file_get_contents($caminho_json);
+
+if ($json_data === false || empty($json_data)) {
+    $animais = [];
+} else {
+    $animais = json_decode($json_data, true);
+    
+    if (json_last_error() !== JSON_ERROR_NONE) {
+        $animais = [];
+    }
+}
+
 $animalId = isset($_GET['id']) ? (int)$_GET['id'] : null;
 $animalSelecionado = null;
 
 if ($animalId && isset($animais[$animalId])) {
     $animalSelecionado = $animais[$animalId];
 }
+
+$confirmacaoSucesso = isset($_GET['confirmacao']) && $_GET['confirmacao'] === 'true' && $animalSelecionado !== null;
 ?>
 
 <!DOCTYPE html>
@@ -43,45 +29,14 @@ if ($animalId && isset($animais[$animalId])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adote um Amigo - Abrigo Mascotinho</title>
-
     <link rel="stylesheet" href="src/adopt.css">
     <link rel="stylesheet" href="src/styles.css">
     <link rel="stylesheet" href="src/mobile-menu.css">
-    <style>
-        /* CSS Específico para os cards dos animais (inline para facilitar) */
-        .animal-img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            border-radius: 0.6rem;
-            margin-bottom: 1rem;
-        }
-        .animal-tag {
-            background-color: #eee;
-            padding: 0.2rem 0.6rem;
-            border-radius: 0.4rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #555;
-            margin-right: 0.5rem;
-        }
-        .animal-info {
-            display: flex;
-            gap: 0.5rem;
-            margin-bottom: 1rem;
-        }
-        .btn-adopt-card {
-            margin-top: auto;
-            width: 100%;
-            text-align: center;
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 <body>
 <div class="header">
     <div class="header-logo-group">
-        <a href="/">
+        <a href="./">
             <svg viewBox="0 0 640 640" width="24" height="24" fill="currentColor" class="go-back-icon">
                 <path fill="currentColor" d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352L544 352C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288L173.3 288L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/>
             </svg>
@@ -89,27 +44,35 @@ if ($animalId && isset($animais[$animalId])) {
         <img src="src/assets/images/logo.png" class="site-logo"/>
     </div>
     <nav class="navbar-links">
-        <a href="/" class="navbar-link">Início</a>
+        <a href="./" class="navbar-link">Início</a>
         <a href="adopt" class="navbar-link navbar-link-active">Adote um amigo</a>
         <a href="donate" class="navbar-link">Faça uma doação</a>
         <a href="contact-us" class="navbar-link">Nos siga</a>
     </nav>
     <button class="mobile-menu-button" id="mobileMenuButton">
         <svg viewBox="0 0 640 640" width="24" height="24" fill="currentColor" class="hamburger-menu-icon">
-             <path fill="currentColor" d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/>
+               <path fill="currentColor" d="M96 160C96 142.3 110.3 128 128 128L512 128C529.7 128 544 142.3 544 160C544 177.7 529.7 192 512 192L128 192C110.3 192 96 177.7 96 160zM96 320C96 302.3 110.3 288 128 288L512 288C529.7 288 544 302.3 544 320C544 337.7 529.7 352 512 352L128 352C110.3 352 96 337.7 96 320zM544 480C544 497.7 529.7 512 512 512L128 512C110.3 512 96 497.7 96 480C96 462.3 110.3 448 128 448L512 448C529.7 448 544 462.3 544 480z"/>
         </svg>
     </button>
-     <div class="mobile-drawer" id="mobileDrawer">
+      <div class="mobile-drawer" id="mobileDrawer">
         <button class="mobile-drawer-close" id="mobileDrawerClose" aria-label="Fechar menu">
             <svg viewBox="0 0 24 24" class="mobile-drawer-close-icon">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m5 5 14 14M5 19 19 5"></path>
             </svg>
         </button>
-        <a href="/" class="mobile-drawer-link">Início</a>
+        <a href="./" class="mobile-drawer-link">Início</a>
         <a href="adopt" class="mobile-drawer-link navbar-link-active">Adote um amigo</a>
         <a href="donate" class="mobile-drawer-link">Faça uma doação</a>
         <a href="contact-us" class="mobile-drawer-link">Nos siga</a>
     </div>
+        <div class="header-actions"><a type="filled" data-href="https://wa.me/5585981727044?text=Oi"
+                                   href="https://wa.me/5585981727044?text=Oi" class="primary-button"
+    >
+        <svg viewBox="0 0 28 28" width="28" height="28" fill="currentColor">
+            <path d="M22.2251 5.72833C21.1553 4.64812 19.8813 3.79163 18.4772 3.20876C17.0731 2.62588 15.567 2.3283 14.0467 2.33333C7.67672 2.33333 2.48506 7.525 2.48506 13.895C2.48506 15.9367 3.02172 17.92 4.02506 19.67L2.39172 25.6667L8.51672 24.0567C10.2084 24.9783 12.1101 25.4683 14.0467 25.4683C20.4167 25.4683 25.6084 20.2767 25.6084 13.9067C25.6084 10.815 24.4067 7.91 22.2251 5.72833ZM14.0467 23.5083C12.3201 23.5083 10.6284 23.0417 9.14672 22.1667L8.79672 21.9567L5.15672 22.9133L6.12506 19.3667L5.89172 19.005C4.9322 17.4732 4.4228 15.7025 4.42172 13.895C4.42172 8.59833 8.73839 4.28167 14.0351 4.28167C16.6017 4.28167 19.0167 5.285 20.8251 7.105C21.7206 7.99617 22.4303 9.0563 22.913 10.2239C23.3956 11.3915 23.6416 12.6433 23.6367 13.9067C23.6601 19.2033 19.3434 23.5083 14.0467 23.5083ZM19.3201 16.3217C19.0284 16.1817 17.6051 15.4817 17.3484 15.3767C17.0801 15.2833 16.8934 15.2367 16.6951 15.5167C16.4967 15.8083 15.9484 16.4617 15.7851 16.6483C15.6217 16.8467 15.4467 16.87 15.1551 16.7183C14.8634 16.5783 13.9301 16.2633 12.8334 15.2833C11.9701 14.5133 11.3984 13.5683 11.2234 13.2767C11.0601 12.985 11.2001 12.8333 11.3517 12.6817C11.4801 12.5533 11.6434 12.3433 11.7834 12.18C11.9234 12.0167 11.9817 11.8883 12.0751 11.7017C12.1684 11.5033 12.1217 11.34 12.0517 11.2C11.9817 11.06 11.3984 9.63667 11.1651 9.05333C10.9317 8.49333 10.6867 8.56333 10.5117 8.55167H9.95172C9.75339 8.55167 9.45006 8.62167 9.18172 8.91333C8.92506 9.205 8.17839 9.905 8.17839 11.3283C8.17839 12.7517 9.21672 14.1283 9.35672 14.315C9.49672 14.5133 11.3984 17.43 14.2917 18.6783C14.9801 18.9817 15.5167 19.1567 15.9367 19.285C16.6251 19.5067 17.2551 19.4717 17.7567 19.4017C18.3167 19.32 19.4717 18.7017 19.7051 18.025C19.9501 17.3483 19.9501 16.7767 19.8684 16.6483C19.7867 16.52 19.6117 16.4617 19.3201 16.3217Z"
+                  fill="currentColor"/>
+        </svg>
+        Fale conosco</a></div>
     <div class="mobile-drawer-backdrop" id="mobileDrawerBackdrop"></div>
 </div>
 
@@ -117,25 +80,62 @@ if ($animalId && isset($animais[$animalId])) {
     <section class="hero-banner page-section-full-width">
         <div class="hero-content-area">
             <h2 align="left" class="section-title-underlined page-title">
-                <?php echo $animalSelecionado ? 'Finalizar Adoção' : 'Nossos Amigos'; ?>
+                <?php 
+                    if ($confirmacaoSucesso) {
+                        echo '🎉 Adoção Solicitada!';
+                    } elseif ($animalSelecionado) {
+                        echo 'Finalizar Adoção';
+                    } else {
+                        echo 'Nossos Amigos';
+                    }
+                ?>
             </h2>
             <p class="hero-description">
-                <?php echo $animalSelecionado 
-                    ? 'Você está a um passo de mudar a vida do ' . $animalSelecionado['nome'] . '. Preencha os dados abaixo.' 
-                    : 'Conheça os animais que estão esperando por um lar cheio de amor.'; ?>
+                <?php 
+                    if ($confirmacaoSucesso) {
+                        echo 'Sua solicitação de adoção para ' . $animalSelecionado['nome'] . ' foi enviada com sucesso! Entraremos em contato em breve.';
+                    } elseif ($animalSelecionado) {
+                        echo 'Você está a um passo de mudar a vida do ' . $animalSelecionado['nome'] . '. Preencha os dados abaixo.';
+                    } else {
+                        echo 'Conheça os animais que estão esperando por um lar cheio de amor.';
+                    }
+                ?>
             </p>
         </div>
     </section>
 
     <section class="main-content-centered">
         
-        <?php if (!$animalSelecionado): ?>
+        <?php if ($confirmacaoSucesso): ?>
+            <div class="form-card content-card-large confirmation-box">
+                <h3 class="section-title-underlined">Obrigado por querer mudar a vida de um amigo!</h3>
+                <p class="confirmation-subtitle">Recebemos sua solicitação para:</p>
+
+                <div class="confirmation-details">
+                    <img src="<?php echo $animalSelecionado['img']; ?>" alt="<?php echo $animalSelecionado['nome']; ?>">
+                    <p>
+                        <strong><?php echo $animalSelecionado['nome']; ?></strong>
+                        (<?php echo $animalSelecionado['tipo'] == 'dog' ? 'Cão' : 'Gato'; ?> - 
+                        <?php echo $animalSelecionado['sexo'] == 'male' ? 'Macho' : 'Fêmea'; ?> - 
+                        <?php echo $animalSelecionado['idade']; ?>)
+                    </p>
+                    <p>Obrigado!</p>
+                </div>
+                
+                <a href="adopt" class="primary-button" style="margin-top: 30px;">
+                    Voltar ao início
+                </a>
+            </div>
+
+        <?php elseif (!$animalSelecionado): ?>
             <div class="cards-grid">
                 <?php foreach ($animais as $id => $animal): ?>
                     <div class="standard-card icon-card contact-card-max-width" style="align-items: flex-start; text-align: left;">
                         <img src="<?php echo $animal['img']; ?>" alt="<?php echo $animal['nome']; ?>" class="animal-img">
-                        <h3 class="card-title"><?php echo $animal['nome']; ?></h3>
                         
+                        <div class="card-body">
+                            <h3 class="card-title"><?php echo $animal['nome']; ?></h3>
+
                         <div class="animal-info">
                             <span class="animal-tag"><?php echo $animal['tipo'] == 'dog' ? 'Cão' : 'Gato'; ?></span>
                             <span class="animal-tag"><?php echo $animal['sexo'] == 'male' ? 'Macho' : 'Fêmea'; ?></span>
@@ -149,6 +149,7 @@ if ($animalId && isset($animais[$animalId])) {
                         <a href="adopt?id=<?php echo $id; ?>" class="primary-button btn-adopt-card">
                             Quero Adotar
                         </a>
+                </div>
                     </div>
                 <?php endforeach; ?>
             </div>
@@ -156,23 +157,27 @@ if ($animalId && isset($animais[$animalId])) {
         <?php else: ?>
             <div class="form-card content-card-large">
                 <div style="width: 100%; margin-bottom: 2rem;">
-                    <a href="adopt" style="text-decoration: none; color: #FF5A00; font-weight: 600;">&larr; Voltar para a lista</a>
+                    <a href="adopt" class="go-back-button">&larr; Voltar para a lista</a>
                 </div>
 
                 <h2 align="left" class="section-title-underlined">Informações pessoais</h2>
-                <form class="adoption-form">
+                <form class="adoption-form" action="adopt" method="GET">
+                    <input type="hidden" name="id" value="<?php echo $animalId; ?>">
+                    <input type="hidden" name="confirmacao" value="true">
+                    
                     <div class="form-fields-wrapper">
                         <div class="form-field-group">
                             <label for="animalSelect" class="form-label">
                                 <span class="label-text-bold">Animal Escolhido:*</span>
                             </label>
-                            <select required id="animalSelect" name="animalId" class="form-input">
+                            <select required id="animalSelect" name="animalId" class="form-input" disabled>
                                 <?php foreach ($animais as $id => $animal): ?>
                                     <option value="<?php echo $id; ?>" <?php echo ($id == $animalId) ? 'selected' : ''; ?>>
                                         <?php echo $animal['nome']; ?> (<?php echo $animal['tipo'] == 'dog' ? 'Cão' : 'Gato'; ?>)
                                     </option>
                                 <?php endforeach; ?>
                             </select>
+                            <input type="hidden" name="id" value="<?php echo $animalId; ?>">
                         </div>
 
                         <div class="form-field-group">
@@ -187,7 +192,7 @@ if ($animalId && isset($animais[$animalId])) {
 
                         <div class="form-field-group">
                             <label for="animalType" class="form-label"><span class="label-text-bold">Tipo:*</span></label>
-                            <select required id="animalType" name="animalType" class="form-input">
+                            <select required id="animalType" name="animalType" class="form-input" disabled>
                                 <option value="dog" <?php echo $animalSelecionado['tipo'] == 'dog' ? 'selected' : ''; ?>>Cachorro</option>
                                 <option value="cat" <?php echo $animalSelecionado['tipo'] == 'cat' ? 'selected' : ''; ?>>Gato</option>
                             </select>
@@ -195,7 +200,7 @@ if ($animalId && isset($animais[$animalId])) {
                         
                         <div class="form-field-group">
                             <label for="petGender" class="form-label"><span class="label-text-bold">Sexo do pet:*</span></label>
-                            <select id="petGender" name="petGender" class="form-input">
+                            <select id="petGender" name="petGender" class="form-input" disabled>
                                 <option value="male" <?php echo $animalSelecionado['sexo'] == 'male' ? 'selected' : ''; ?>>Macho</option>
                                 <option value="female" <?php echo $animalSelecionado['sexo'] == 'female' ? 'selected' : ''; ?>>Fêmea</option>
                             </select>
@@ -206,7 +211,7 @@ if ($animalId && isset($animais[$animalId])) {
                             <textarea id="motivation" name="motivation" placeholder="Por que você escolheu o <?php echo $animalSelecionado['nome']; ?>?" rows="2" class="form-input"></textarea>
                         </div>
                     </div>
-                    <button class="primary-button form-submit-button">Enviar Adoção</button>
+                    <button class="primary-button form-submit-button" type="submit">Enviar Adoção</button>
                 </form>
             </div>
         <?php endif; ?>
@@ -218,5 +223,6 @@ if ($animalId && isset($animais[$animalId])) {
     <p class="footer-description">Projeto de extensão elaborado por alunos da Universidade 7 de Setembro.</p>
 </div>
 <script src="src/mobile-menu.js"></script>
+<script src="src/phone-mask.js"></script>
 </body>
 </html>

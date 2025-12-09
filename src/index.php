@@ -12,14 +12,10 @@
 <body>
 <div class="header">
     <div class="header-logo-group">
-        <a href="<?php echo $baseUrl; ?>/">  <svg viewBox="0 0 640 640" width="24" height="24" fill="currentColor" class="go-back-icon">
-        <path fill="currentColor" d="M73.4 297.4C60.9 309.9 60.9 330.2 73.4 342.7L233.4 502.7C245.9 515.2 266.2 515.2 278.7 502.7C291.2 490.2 291.2 469.9 278.7 457.4L173.3 352L544 352C561.7 352 576 337.7 576 320C576 302.3 561.7 288 544 288L173.3 288L278.7 182.6C291.2 170.1 291.2 149.8 278.7 137.3C266.2 124.8 245.9 124.8 233.4 137.3L73.4 297.3z"/>
-    </svg>
-</a>
 <img src="src/assets/images/logo.png" class="site-logo"/></div>
 
 <nav class="navbar-links">
-    <a href="<?php echo $baseUrl; ?>/" class="navbar-link">Início</a> <a href="adopt" class="navbar-link">Adote um amigo</a>
+    <a href="./" class="navbar-link navbar-link-active">Início</a> <a href="adopt" class="navbar-link">Adote um amigo</a>
     <a href="donate" class="navbar-link">Faça uma doação</a>
     <a href="contact-us" class="navbar-link">Nos siga</a>
 </nav>
@@ -45,7 +41,7 @@
             </svg>
         </button>
 
-        <a href="/" class="mobile-drawer-link navbar-link-active">Início</a>
+        <a href="./" class="mobile-drawer-link navbar-link-active">Início</a>
         <a href="adopt" class="mobile-drawer-link">Adote um amigo</a>
         <a href="donate" class="mobile-drawer-link">Faça uma doação</a>
         <a href="contact-us" class="mobile-drawer-link">Nos siga</a>
@@ -57,8 +53,8 @@
     <div class="hero-content-area-left"><h1 class="hero-title">Onde o abandono termina e o amor recomeça.</h1>
         <p class="hero-description">Resgatar é apenas o primeiro passo. Nosso trabalho diário envolve alimentar, medicar
             e socializar centenas de cães para que eles estejam prontos para um novo começo. Seja o pilar que sustenta
-            essa missão.</p><a data-href="#how-you-can-help" class="primary-button">Quero
-            ajudar</a></div>
+            essa missão.</p><a onclick="smoothScroll('#how-you-can-help')" class="primary-button">Quero
+    ajudar</a></div>
 </section>
 <div class="main-content-wrapper">
     <section class="story-section">
@@ -101,7 +97,7 @@
                 <h3 class="card-title">Adote um amigo</h3>
                 <p class="card-description-long">Acolhemos animais que sofreram com o abandono e maus-tratos. Ao adotar,
                     você oferece um lar cheio de amor e carinho, e ajuda a transformar uma vida. Preencha o formulário e
-                    faça a diferença.</p><a class="primary-button card-button" data-href="/adopt" href="/adopt"
+                    faça a diferença.</p><a class="primary-button card-button" href="adopt"
             >Quero adotar</a></div>
             <div class="standard-card icon-card-group icon-card-with-button">
                 <svg viewBox="0 0 110 104" width="24" height="24" fill="currentColor" class="card-icon">
@@ -112,7 +108,7 @@
                 <p class="card-description-long">Manter um abrigo é um grande desafio. Ração, medicamentos, vacinas, e
                     cuidados veterinários são essenciais para o bem-estar dos nossos animais. Sua doação, de qualquer
                     valor, nos ajuda a continuar salvando e protegendo quem mais precisa.</p><a
-                    class="primary-button card-button" data-href="/donate" href="/donate">Quero
+                    class="primary-button card-button" href="donate">Quero
                 ajudar</a></div>
             <div class="standard-card icon-card-group icon-card-with-button">
                 <svg viewBox="0 0 110 101" width="24" height="24" fill="currentColor" class="card-icon">
@@ -123,7 +119,7 @@
                 <p class="card-description-long">Nossas redes sociais são a melhor forma de acompanhar o trabalho do
                     abrigo, ver as histórias de resgate e adoção, e ficar por dentro dos nossos eventos. Siga-nos para
                     compartilhar nossa missão e espalhar a causa da proteção animal.</p><a
-                    class="primary-button card-button" data-href="/contact-us" href="/contact-us">Quero
+                    class="primary-button card-button" href="contact-us">Quero
                 seguir</a></div>
         </div>
     </section>
@@ -141,5 +137,6 @@
 <div class="footer"><h5 class="footer-text-small">© Abrigo Mascotinho 2025. Todos os direitos reservados</h5>
     <p class="footer-description">Projeto de extensão elaborado por alunos da Universidade 7 de Setembro.</p></div>
 <script src="src/mobile-menu.js"></script>
+<script src="src/index.js"></script>
 </body>
 </html>
